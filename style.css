@@ -49,7 +49,7 @@ form input[type='submit']{
     outline: none;
     cursor: pointer;
 }
-.listBox{
+.listBox, .lists{
     width: 500px;
     max-width: 100%;
     margin: auto;
@@ -59,6 +59,19 @@ form input[type='submit']{
     font-size: 26px;
 }
 .lists {
-    width: 100%;
     line-height: 1.3;
+    font-size: 22px;
+    text-align: left;
+}
+.btn2 {
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    background-color: lightgreen;
+    cursor: pointer;
+    padding: 5px;
+}
+.singer{
+    font-family: 300;
+    font-size: 24px;
 }

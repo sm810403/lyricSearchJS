@@ -16,27 +16,47 @@ form.addEventListener('submit', e =>{
         getData(inputText)
     }
 });
-function getData(inputText){
-    fetch(`${apiUrl}/suggest/${inputText}`)
-        .then(res => res.json())
-        .then(data => console.log(data));
+async function getData(inputText){
+    const res = await fetch(`${apiUrl}/suggest/${inputText}`);
+    const data = await res.json();
+// function getData(inputText){
+//     fetch(`${apiUrl}/suggest/${inputText}`)
+//         .then(res => res.json())
+//         .then(data => console.log(data));
 
     showData(data);
 }
 function showData(data){
-    const singer = data.artist.name;
-    const song = data.title;
+    
+    let output = '';
 
+    data.data.forEach(song =>{
+        const singer = song.artist.name;
+        const songs = song.title;
+        output +=`
+            <li><span class="singer">${singer}</span>:${songs}
+                <button class="btn2">get lyrics</button>
+            </li>
+        `
+    });
     lists.innerHTML = `
         <ul>
-            <li></li>
+            ${output}
         </ul>
         `
+    if (data.prev || data.next){
+        more.innnerHTML = `
+            ${data.prev? `<button class="btn2">Prev</button>`: ''}
+            ${data.next? `<button class="btn2">Next</button>`: ''}
+        `
+    } else {
+        more.innerHTML = '';
+    }
+    
+
+     
 }
-// async function getData(inputText){
-//     const res = await fetch(`${apiUrl}/suggest/${term}`);
-//     const data = await res.json();
-// }
+
 //get value fomr search bar
 //submit it
 //get data from api
