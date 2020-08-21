@@ -23,7 +23,7 @@ async function getData(inputText){
 //     fetch(`${apiUrl}/suggest/${inputText}`)
 //         .then(res => res.json())
 //         .then(data => console.log(data));
-
+// console.log(data)
     showData(data);
 }
 function showData(data){
@@ -44,19 +44,19 @@ function showData(data){
             ${output}
         </ul>
         `
-    if (data.prev || data.next){
-        more.innnerHTML = `
-            ${data.prev? `<button class="btn2">Prev</button>`: ''}
-            ${data.next? `<button class="btn2">Next</button>`: ''}
-        `
+    if ($('data.prev')||$('data.next')){
+        $('.more').html(`
+            ${$('data.prev')? `<button onclick=showPrev()>prev</button>`: ''}
+            ${$('data.next')? `<button onclick=showNext()>next</button>`: ''}
+        `)
     } else {
-        more.innerHTML = '';
+        $('.more').html('');
     }
-    
-
-     
 }
 
+$('.btn2').on('click',function(){
+
+})
 //get value fomr search bar
 //submit it
 //get data from api

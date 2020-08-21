@@ -52,8 +52,8 @@ form input[type='submit']{
 .listBox, .lists{
     width: 500px;
     max-width: 100%;
-    margin: auto;
-    height: 60%;
+    margin: 10px auto;
+    /* height: 60%; */
 }
 .listBox p {
     font-size: 26px;
